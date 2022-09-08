@@ -68,7 +68,8 @@ jobs:
           fetch-depth: 0
       - name: Set git bash
         run: |
-          Set-Alias -Name bash -Value "C:\Program Files\Git\usr\bin\bash.exe"
+          #Set-Alias -Name bash -Value "C:\Program Files\Git\usr\bin\bash.exe"
+          Set-Alias -Name bash -Value "C:\WINDOWS\system32\bash.exe"
       - name: Calculate git version and add it to the environment
         shell: bash
         # We have to use this format to create env vars that can be used in future steps (in particular, as part of download file name
