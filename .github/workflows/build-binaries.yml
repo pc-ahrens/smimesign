@@ -66,10 +66,6 @@ jobs:
         with:
           # `fetch-depth: 0` gets us all tags.
           fetch-depth: 0
-      - name: Set git bash
-        run: |
-          #Set-Alias -Name bash -Value "C:\Program Files\Git\usr\bin\bash.exe"
-          Set-Alias -Name bash -Value "C:\WINDOWS\system32\bash.exe"
       - name: Calculate git version and add it to the environment
         shell: bash
         # We have to use this format to create env vars that can be used in future steps (in particular, as part of download file name
@@ -86,7 +82,7 @@ jobs:
           then
             echo "BARE_GIT_VERSION=${BASH_REMATCH[1]}" >> $GITHUB_ENV
           else
-            echo "Could not calculate the bare git version (e.g. `v1.1.0-rc1-28-g8a54734` -> `1.1.0`) for: ${GIT_VERSION}"
+            echo "Could not calculate the bare git version for: ${GIT_VERSION}"
             exit 1
           fi
       - name: Build amd64
